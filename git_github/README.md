@@ -1,4 +1,5 @@
-##1: create a new rep on the command line 
+# git and gitHub
+##1.create a new rep on the command line 
     echo "# wmaDecode" >> README.md
     git init
     git add README.md
@@ -14,3 +15,6 @@
     2.之后的操作请参照https://help.github.com/articles/generating-ssh-keys/
     3.如果之前是用https进行git clone 的reposity的话,需要进行https切换到ssh.
     4.https切换到ssh参照https://help.github.com/articles/changing-a-remote-s-url/
+##4. git operation
+    git目录下,所有操作需带git操作,否则.git无法知道状态的变化.
+    如删除使用git rm 替代rm
