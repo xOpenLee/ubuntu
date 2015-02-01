@@ -1,0 +1,6 @@
+##1.vim 下查看二进制文件
+    vim二进制方式编辑 vim -b datafile
+    用xxd把这个文件转换成十六进制
+    :%!xxd
+##2.vim 比较两个文件的差异
+   vim -d file1 file2

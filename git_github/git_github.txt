@@ -1,0 +1,11 @@
+##1: create a new rep on the command line 
+    echo "# wmaDecode" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin https://github.com/xOpenLee/wmaDecode.git
+    git push -u origin master
+##2. github README.md add the picture method
+    1.先将图片上传到reposity当中,任何在github当中打开,复制路径
+    2.![](复制的路径),注意这行一定要没有空格.
+    3.再次提交即可
