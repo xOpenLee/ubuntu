@@ -18,3 +18,9 @@
 ##4. git operation
     git目录下,所有操作需带git操作,否则.git无法知道状态的变化.
     如删除使用git rm 替代rm
+##5. git reset
+    git reset HEAD filename  从暂存区中移除文件
+    git reset –hard HEAD~3  会将最新的3次提交全部重置，就像没有提交过一样。
+    git reset –hard commit (38679ed709fd0a3767b79b93d0fba5bb8dd235f8) 回退到 38679ed709fd0a3767b79b93d0fba5bb8dd235f8 版本
+##6. git reset 错误
+    若发现git reset 回滚错误,可以通过git reflog查找版本信息,然后通过git reset --hard (verID)进行恢复
