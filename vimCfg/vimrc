@@ -9,7 +9,7 @@ set sm
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
-set tags =./tags,tags
+set tags =./tags,tags,../tags,../../tags,../../../tags,
 set tags+=/home/ubuntu-xOpenLee/study/git/python/cpython-master/tags
 
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
@@ -205,7 +205,7 @@ map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!g++ % -o %<"
+		exec "!gcc % -o %<"
 		exec "!time ./%<"
 	elseif &filetype == 'cpp'
 		exec "!g++ % -o %<"
@@ -244,7 +244,7 @@ map <F6> :call FormartSrc()<CR><CR>
 func FormartSrc()
     exec "w"
     if &filetype == 'c'
-        exec "!astyle --style=ansi -a --suffix=none %"
+        exec "!astyle --style=linux -a --suffix=none %"
     elseif &filetype == 'cpp' || &filetype == 'hpp'
         exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
     elseif &filetype == 'perl'
