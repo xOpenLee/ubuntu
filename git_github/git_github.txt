@@ -12,3 +12,5 @@
 ##3. 解决每次git push 都需要输入用户名和密码
     1.因为之前我用另一个邮箱生产过SSH key,因此,需要删除之前位于在~/.ssh/目录下的所有文件
     2.之后的操作请参照https://help.github.com/articles/generating-ssh-keys/
+    3.如果之前是用https进行git clone 的reposity的话,需要进行https切换到ssh.
+    4.https切换到ssh参照https://help.github.com/articles/changing-a-remote-s-url/
