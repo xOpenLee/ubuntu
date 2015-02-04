@@ -14,3 +14,7 @@
    使用Artistic Style 2.05链接为:http://astyle.sourceforge.net/astyle.html
    修改246行,使用linux风格,具体风格可以参考Artistic Style 2.05的doc
    将c的编译器改成gcc而不适用g++
+##4. gvim 更改配色方案
+    a.到vim官网挑选心怡的配色方案,http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=color+scheme&order_by=downloads&direction=descending&search=search
+    b.将下载的配饰方案拷贝到 /usr/share/vim/vim74/colors/目录下,注意vim74的目录74是版本有关
+    c.在~/.vimrc下添加colorscheme molokai //我下载的github.vim
