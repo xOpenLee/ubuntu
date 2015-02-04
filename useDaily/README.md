@@ -9,3 +9,7 @@
 ##3. gvim 实现F11全屏操作
     在~/.vimrc添加
     map <silent> <F11>  :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+##4. gvim 更改配色方案
+    a.到vim官网挑选心怡的配色方案,http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=color+scheme&order_by=downloads&direction=descending&search=search
+    b.将下载的配饰方案拷贝到 /usr/share/vim/vim74/colors/目录下,注意vim74的目录74是版本有关
+    c.在~/.vimrc下添加colorscheme molokai //我下载的github.vim
