@@ -12,6 +12,6 @@
 ##4. wireshart  there is no interfaces on which a capture can be done.
     1. first methon: 使用超级用户进行打开wireshark,操作简单,但具有风险性.
     2. second methon: 修改dumpcap权限为4755,
-##5. make 2>&1 tee error.log
+##5. make 2>&1 | tee error.log
     1. 0-stdin, 1-stdout, 2-stderr; 2>&1标准错误重定向到标准输出
     2.tee同时显示在屏幕和重定向到error.log文件当中.
