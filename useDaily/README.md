@@ -15,3 +15,17 @@
 ##5. make 2>&1 | tee error.log
     1. 0-stdin, 1-stdout, 2-stderr; 2>&1标准错误重定向到标准输出
     2.tee同时显示在屏幕和重定向到error.log文件当中.
+##6. ubuntu 修改hostname
+   1. vim /etc/hostname,修改,然后使用w !sudo tee %,修改只读文件
+##7. vim 保存只读文件
+   1. w !sudo tee %
+##8. ubuntu 调试android手机
+   1. usb连接手机,选择调试模式
+   2.ubuntu terminal 输入adb devices
+   3.ubuntu 输入 adb shell登录到手机shell
+##9. ubuntu adb push 到sdcard
+   1. adb push src ／dst
+##10. android运行脚本
+　1.会抱错没有权限，即使ls -al 显示有权限
+  2.需要sh ./srcipt.sh
+
