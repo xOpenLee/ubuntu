@@ -41,8 +41,7 @@ interac
 安卓手机安卓quicksshd,输入端口和密码
 ubuntu 使用ssh -p 端口号 root@androidip
 ##14. android wifi 密码
-安卓wifi密码存放/data/misc/wifi/wpa_supplicant.conf
-明文存储.
+安卓wifi密码存放/data/misc/wifi/wpa_supplicant.conf明文存储.
 ##15. ubuntu 使用 terminator
 Ctrl+Shift+E 垂直分割窗口
 Ctrl+Shift+O 水平分割窗口
@@ -93,3 +92,5 @@ sudo mkfontscale
 sudo mkfontdir
 sudo fc-cache -fsv
 
+##18.ubuntu安装vimium,使用键盘上网.
+##19. firefox使用backspace,回退到auto:config, backspace修改值为2
