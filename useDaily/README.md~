@@ -103,10 +103,6 @@ xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 ##22. 小写变成大写
 " 将选择的文字变成大写,插入模式,按ctrl+u
-inoremap <C-u> <esc>gUiweas
+inoremap <C-u> <esc>gUiwea
 
-##23. mwm143@x:/etc$ sudo 
-sudo: /etc/sudoers is owned by uid 1000, should be 0
-sudo: no valid sudoers sources found, quitting
-sudo: unable to initialize policy plugin
-mwm143@x:/etc$ pkexec chown root:root /etc/sudoers /etc/sudoers.d -R
+
