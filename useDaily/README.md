@@ -110,3 +110,5 @@ sudo: /etc/sudoers is owned by uid 1000, should be 0
 sudo: no valid sudoers sources found, quitting
 sudo: unable to initialize policy plugin
 mwm143@x:/etc$ pkexec chown root:root /etc/sudoers /etc/sudoers.d -R
+
+##24.ubuntu 挂载samba目录 sudo mount -t cifs //192.168.0.106/ubuntusamba /mnt -o username=mwm143,password=123456
