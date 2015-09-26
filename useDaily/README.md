@@ -112,3 +112,32 @@ sudo: unable to initialize policy plugin
 mwm143@x:/etc$ pkexec chown root:root /etc/sudoers /etc/sudoers.d -R
 
 ##24.ubuntu 挂载samba目录 sudo mount -t cifs //192.168.0.106/ubuntusamba /mnt -o username=mwm143,password=123456
+##25. how to ext4 disk quota(journaled)
+1) Enable journaled quota in  /etc/fstab for all data partitions , see an example below
+
+------------
+/dev/sda3 / ext4 defaults,noatime,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0 0 1
+/dev/sda6 /home ext4 defaults,noatime,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0 0 1
+---------
+
+The exact flags for journaled quota is  usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0
+
+Now  remove or empty the quota files under / and /home
+
+After that reboot your  server  to load the new quota. If you don’t like reboot you can remount all the above partitions
+
+2) After successful reboot do the following
+
+# quotaoff -a
+# quotacheck -avugm
+# quotaon -avug
+##26.离线安装系统
+上述的特殊字体地方将 0 改成 1 ，这样就能够让你的 RPM 档案保存下来。不过，除非你有好多部主机要更新， 你想利用一台先 yum 升级且下载，然后将所有的 RPM 档案收集起来给内网的机器升级 (rpm -Fvh *.rpm) 之外， 上面的 vim 修改动作不建议修改！因为你的 /var 恐怕会被塞爆啊！再次提醒！ 
+##27. ubuntu 搭建 nfs服务
+a.sudo apt-get install nfs-kernel-server nfs-common
+b.vim /etc/exports
+添加/tftpboot/nfsboot *(rw,sync,no_root_squash)
+c. sudo /etc/init.d/nfs-kernel-server restart
+d.客户端需要安装nfs-common
+sudo apt-get install nfs-common
+e. mount 192.168.0.104:/tftpboot/nfsroot /mnt
