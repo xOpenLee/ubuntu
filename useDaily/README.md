@@ -136,8 +136,9 @@ After that reboot your  server  to load the new quota. If you don’t like reboo
 ##27. ubuntu 搭建 nfs服务
 a.sudo apt-get install nfs-kernel-server nfs-common
 b.vim /etc/exports
-添加/tftpboot/nfsboot *(rw,sync,no_root_squash)
+添加/tftpboot/nfsboot *(rw,sync,no_subtree_check,no_root_squash)
 c. sudo /etc/init.d/nfs-kernel-server restart
 d.客户端需要安装nfs-common
 sudo apt-get install nfs-common
 e. mount 192.168.0.104:/tftpboot/nfsroot /mnt
+sudo echo hi.nfs.client > hi.nfs.client.txt

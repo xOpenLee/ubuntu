@@ -1,0 +1,75 @@
+#!/bin/bash
+
+PRO=QNET
+VERSION=1.0.0
+INTERFACE=$1
+OPTION=$2
+
+
+help(){
+    echo $PRO $VERSION
+    echo "Usage: $0 <interface> [option]"
+    echo "       interface: must be"
+    echo "       up :   up qemu network"
+    echo "       down : down qemu network"
+    exit -2
+}
+
+up_network(){
+    echo "start up qemu network ..."
+    # down net interface
+    ifconfig $INTERFACE down
+    ifconfig $INTERFACE 0.0.0.0 promisc up
+
+    # start TAP/tap0
+    openvpn --mktun --dev tap0
+    ifconfig tap0 0.0.0.0 up
+
+    brctl addbr br0
+    brctl addif br0 $INTERFACE
+    brctl addif br0 tap0
+    brctl stp br0 off
+
+    # create bridge
+    ifconfig br0 10.10.10.2 netmask 255.255.255.0
+    echo "finish qemu network."
+}
+
+down_network(){
+    echo "start down qemu network ..."
+    ifconfig $INTERFACE down
+    ifconfig $INTERFACE -promisc
+    ifconfig  $INTERFACE up
+    ifconfig br0 down
+    brctl delbr br0
+    openvpn --rmtun --dev tap0
+    echo "finish down qemu network."
+}
+
+if [ $(whoami) != "root" ]
+then
+    echo "$PRO must be root user, please use root account."
+    exit -1
+fi
+
+if [ $# != 2 ]
+then
+    help
+else
+    case $OPTION in
+    up)
+        up_network
+        ;;
+    down)
+        down_network
+        ;;
+    *)
+        echo "###ERR: $PRO don't kown this option"
+        help
+        ;;
+    esac
+
+fi
+
+exit 0
+
